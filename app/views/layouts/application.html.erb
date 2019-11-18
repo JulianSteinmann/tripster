@@ -11,8 +11,7 @@
   </head>
   <body>
     <%= render 'partials/nav' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'partials/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
