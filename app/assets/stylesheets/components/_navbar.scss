@@ -2,10 +2,28 @@
   justify-content: space-between;
   position: fixed;
   width: 100%;
-  transition: background 1s;
-  &.scroll-bg {
-    background-color: rgba(0,0,0,0.8);
+  z-index: 1000;
+  &:not(.nav--home) {
+    background-color: rgba(255,255,255,0.9);
+    .nav__logo--light { display: none; }
+    .nav__logo--dark { display: block; }
   }
+  &.nav--home {
+    transition: background 1s;
+    background-color: transparent;
+    .nav-link { color: #fff; }
+    .nav-item > .nav-link { color: #fff; }
+    .nav__logo--light { display: block; }
+    .nav__logo--dark { display: none; }
+  }
+  &.scroll-bg {
+    background-color: rgba(255,255,255,0.9);
+    .nav-item > .nav-link { color: #000; }
+    .nav__logo--light { display: none; }
+    .nav__logo--dark { display: block; }
+  }
+
+
 }
 
 .navbar-lewagon .navbar-collapse {
