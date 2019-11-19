@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= current_page?(action: 'home') ? "nav--home" : "" %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= current_page?(action: 'home', controller: "pages") ? "nav--home" : "" %>
 " id="navbar">
   <a class="navbar-brand" href="<%= root_path %>">
     <%= image_tag "logo-v01.png", class: "nav__logo--dark" %>
