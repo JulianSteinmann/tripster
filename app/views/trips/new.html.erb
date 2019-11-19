@@ -1,11 +1,16 @@
-
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="form col-12 col-lg-6">
+      <h2 style="text-align: center"> Create a trip</h2>
   <%= simple_form_for @trip do |f| %>
 
     <%= f.input :destination %>
     <%= f.input :origin %>
-    <%= f.input :departure_time %>
+    <%= f.input :departure_time, required: true, :label => "Departure date:"%>
     <%= f.input :seats %>
     <%= f.submit "Create Trip", class: "btn btn-primary" %>
   <% end %>
-
+    </div>
+  </div>
+</div>
 
