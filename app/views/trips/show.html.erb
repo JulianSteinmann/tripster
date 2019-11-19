@@ -5,6 +5,7 @@
       <li><%="Driver email: #{@trip.user.email}"%></li>
       <li><%="Number of Seats: #{@trip.seats}"%></li>
       <li><%="Date of Departure: #{@trip.departure_time}"%></li>
+      <li><%="Price: £#{@trip.price}"%></li>
     </ul>
 
     <%= link_to "Book Now", root_path, class: "btn btn-primary" %>
