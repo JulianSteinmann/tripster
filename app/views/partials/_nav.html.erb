@@ -13,7 +13,7 @@
       </li>
       <% if user_signed_in? %>
       <li class="nav-item">
-        <a class="nav-link" href="#">Create Trip</a>
+        <%= link_to "Create", new_trip_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
