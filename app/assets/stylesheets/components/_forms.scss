@@ -5,13 +5,8 @@
 .form-control {
   border-radius: 16px;
   box-shadow: 1px 1px 1px rgba(8, 8, 8, .05);
-  border-color: $lime-green
+  border-color: $lime-green;
 }
-
-.btn{
-  color:white;
-}
-
 
 .form p {
   margin-top: 16px;
@@ -21,10 +16,18 @@ h2 {
   color: $lime-green;
 }
 
-.btn-primary {
+.form .btn-primary {
+  color:white;
   border-radius: 24px;
-  padding: 0px 8px;
+  padding: 4px 16px;
   :hover {
-    color: $lime-green;
+    color: white;
+  }
+}
+
+.form a {
+  text-decoration: none;
+  :hover {
+    color: $blue;
   }
 }

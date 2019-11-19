@@ -1,0 +1,14 @@
+    <h1><%="Trip from #{@trip.origin} to #{@trip.destination}"%></h2>
+
+    <ul>
+      <li><%="Driver: #{@trip.user.first_name} #{@trip.user.last_name}"%></li>
+      <li><%="Driver email: #{@trip.user.email}"%></li>
+      <li><%="Number of Seats: #{@trip.seats}"%></li>
+      <li><%="Date of Departure: #{@trip.departure_time}"%></li>
+    </ul>
+
+    <%= link_to "Book Now", root_path, class: "btn btn-primary" %>
+
+
+
+

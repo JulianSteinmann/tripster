@@ -1,5 +1,10 @@
 .trip-table {
   width: 100%;
+  color: black;
+  a, a:hover {
+    text-decoration: none;
+    color: black;
+  }
   li {
     margin-bottom: 5px;
     text-align: center;
@@ -8,6 +13,7 @@
       @media screen and (max-width: 900px) {
         display: none
       }
+
     }
     i {
       display: inline;

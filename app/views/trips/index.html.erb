@@ -3,39 +3,29 @@
 <div class="container d-flex">
   <div class="filter">
     <%= form_tag trips_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
+      <%= text_field_tag :origin,
+        params[:origin],
         class: "form-control",
-        placeholder: "Find a location"
+        placeholder: "Origin"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= text_field_tag :destination,
+        params[:destination],
+        class: "form-control",
+        placeholder: "Destination"
+      %>
+      <%= submit_tag "Filter", class: "btn btn-primary" %>
     <% end %>
+    <%= link_to "Reset", trips_path, class: "btn btn-primary" %>
   </div>
 
-  <ul class="list-group trip-table" >
-    <li>
-      <span>Departure/Arrival</span>
-      <span>Departure Time</span>
-      <span>Price</span>
-      <span>Driver</span>
-    </li>
+  <% if params[:origin] == "" && params[:destination] == "" || params[:origin].nil? && params[:destination].nil? %>
+    <%= render "partials/trip-cards", trips: @trips %>
+  <% elsif params[:origin] && params[:destination] == "" || params[:destination].nil? %>
+    <%= render "partials/trip-cards", trips: @trips_partial %>
+  <% else %>
+    <% params[:origin] = params[:origin].capitalize %>
+    <% params[:destination] = params[:destination].capitalize %>
+    <%= render "partials/trip-cards", trips: @trips_search %>
+  <% end %>
 
-    <% @trips.each do |trip| %>
-      <% if params[:query].downcase == trip.destination.downcase %>
-        <li class="list-group-item">
-          <span><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></span>
-          <span class="trip-table__date"><%= trip.departure_time %></span>
-          <span>£12</span>
-          <span><%= trip.user.first_name %> <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
-        </li>
-      <% elsif params[:query] == "" %>
-        <li class="list-group-item">
-          <span><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></span>
-          <span class="trip-table__date"><%= trip.departure_time %></span>
-          <span>£12</span>
-          <span><%= trip.user.first_name %> <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
 </div>
