@@ -18,13 +18,13 @@
 }
 
 h2 {
-  color: $lime-green
+  color: $lime-green;
 }
 
 .btn-primary {
   border-radius: 24px;
   padding: 0px 8px;
   :hover {
-    color: #f9f9f9;
+    color: $lime-green;
   }
 }
