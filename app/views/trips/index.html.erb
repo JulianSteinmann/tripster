@@ -23,8 +23,6 @@
   <% elsif params[:origin] && params[:destination] == "" || params[:destination].nil? %>
     <%= render "partials/trip-cards", trips: @trips_partial %>
   <% else %>
-    <% params[:origin] = params[:origin].capitalize %>
-    <% params[:destination] = params[:destination].capitalize %>
     <%= render "partials/trip-cards", trips: @trips_search %>
   <% end %>
 
