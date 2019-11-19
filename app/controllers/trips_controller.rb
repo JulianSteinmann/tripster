@@ -1,4 +1,13 @@
 class TripsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  def index
+    @trips = Trip.all
+  end
+
+  def show
+    find_trip
+  end
+
   def new
     @trip = Trip.new
   end
@@ -14,6 +23,10 @@ class TripsController < ApplicationController
   end
 
   private
+
+  def find_trip
+    @trip = Trip.find(params[:id])
+  end
 
   def trip_params
     params.require(:trip).permit(:destination, :origin, :departure_time, :seats)
