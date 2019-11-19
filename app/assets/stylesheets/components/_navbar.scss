@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 1000;
   &:not(.nav--home) {
@@ -9,7 +10,7 @@
     .nav__logo--dark { display: block; }
   }
   &.nav--home {
-    transition: background 1s;
+    transition: background 1s, color .3s;
     background-color: transparent;
     .nav-link { color: #fff; }
     .nav-item > .nav-link { color: #fff; }
