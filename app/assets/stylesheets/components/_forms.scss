@@ -1,4 +1,4 @@
-.form-sign-up {
+.form {
   padding-top: 48px;
 }
 
@@ -8,7 +8,7 @@
   border-color: $lime-green;
 }
 
-.form-sign-up p {
+.form p {
   margin-top: 16px;
 }
 
@@ -16,11 +16,18 @@ h2 {
   color: $lime-green;
 }
 
-.form-sign-up .btn-primary {
+.form .btn-primary {
   color:white;
   border-radius: 24px;
   padding: 4px 16px;
   :hover {
     color: white;
+  }
+}
+
+.form a {
+  text-decoration: none;
+  :hover {
+    color: $blue;
   }
 }
