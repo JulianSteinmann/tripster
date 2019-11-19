@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   def index
     @trips = Trip.all
     @trips_search = Trip.where(["origin = ? and destination = ?", params[:origin], params[:destination]])
+    @trips_partial = Trip.where(["origin = ?", params[:origin]])
   end
 
   def show
