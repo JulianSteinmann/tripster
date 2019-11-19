@@ -3,8 +3,8 @@
 <div class="container d-flex">
   <div class="filter">
     <%= form_tag trips_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
+      <%= text_field_tag :destination,
+        params[:destination],
         class: "form-control",
         placeholder: "Find a location"
       %>
@@ -21,17 +21,17 @@
     </li>
 
     <% @trips.each do |trip| %>
-      <% if params[:query].downcase == trip.destination.downcase %>
+      <% if params[:destination] == "" || params[:destination].nil? %>
         <li class="list-group-item">
           <span><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></span>
-          <span class="trip-table__date"><%= trip.departure_time %></span>
+          <span class="trip-table__date"><%= trip.departure_time.strftime '%a, %d of %b at %H:%M' %></span>
           <span>£12</span>
           <span><%= trip.user.first_name %> <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
         </li>
-      <% elsif params[:query] == "" %>
+      <% elsif params[:destination].downcase == trip.destination.downcase%>
         <li class="list-group-item">
           <span><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></span>
-          <span class="trip-table__date"><%= trip.departure_time %></span>
+          <span class="trip-table__date"><%= trip.departure_time.strftime '%a, %d of %b at %H:%M' %></span>
           <span>£12</span>
           <span><%= trip.user.first_name %> <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
         </li>
