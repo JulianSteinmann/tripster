@@ -7,6 +7,9 @@ require "faker"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Booking.destroy_all
+Trip.destroy_all
+User.destroy_all
 
 puts 'Creating 40 users...'
 
@@ -26,11 +29,12 @@ puts 'Creating 20 trips...'
 
 20.times do
   trip = Trip.new(
-    user_id: rand(1..40),
+    user_id: User.all.sample.id,
     destination: ["Paris", "Madrid", "Belfast", "Berlin", "Chicago", "Zurich", "Berlin"].sample,
-    origin: "London",
+    origin: ["London", "Manchester", "Liverpool"].sample,
     departure_time: Date.new,
     seats: rand(1..6),
+    price: rand(12..1000)
   )
   trip.save!
 end
@@ -41,8 +45,8 @@ puts 'Creating 5 bookings...'
 
 5.times do
   booking = Booking.new(
-    trip_id: rand(1..20),
-    user_id: rand(1..40),
+    trip_id: Trip.all.sample.id,
+    user_id: User.all.sample.id,
     status: ["active", "inactive", "pending"].sample
   )
   booking.save!

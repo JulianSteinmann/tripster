@@ -5,5 +5,5 @@ class Trip < ApplicationRecord
   validates :seats, presence: true
   validates :origin, presence: true
   validates :departure_time, presence: true
-
+  validates :price, presence: true
 end
