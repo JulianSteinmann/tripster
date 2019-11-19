@@ -15,11 +15,14 @@
       %>
       <%= submit_tag "Filter", class: "btn btn-primary" %>
     <% end %>
+    <%= link_to "Reset", trips_path, class: "btn btn-primary" %>
   </div>
 
   <% if params[:origin] == "" && params[:destination] == "" || params[:origin].nil? && params[:destination].nil? %>
     <%= render "partials/trip-cards", trips: @trips %>
   <% else %>
+    <% params[:origin] = params[:origin].capitalize %>
+    <% params[:destination] = params[:destination].capitalize %>
     <%= render "partials/trip-cards", trips: @trips_search %>
   <% end %>
 

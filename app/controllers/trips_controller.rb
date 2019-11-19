@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @trips = Trip.all
-    @trips_search = Trip.where(["origin = ? and destination = ?", params[:origin].capitalize, params[:destination].capitalize])
+    @trips_search = Trip.where(["origin = ? and destination = ?", params[:origin], params[:destination]])
   end
 
   def show
