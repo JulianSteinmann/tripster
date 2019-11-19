@@ -8,6 +8,8 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'faker'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
