@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @trips = Trip.all
   end
 end

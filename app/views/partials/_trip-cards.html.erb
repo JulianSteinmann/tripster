@@ -7,11 +7,13 @@
   </li>
 
   <% trips.each do |trip| %>
-    <li class="list-group-item">
-      <span><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></span>
-      <span class="trip-table__date"><%= trip.departure_time.strftime '%a, %d of %b at %H:%M' %></span>
-      <span>£12</span>
-      <span><%= trip.user.first_name %> <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
-    </li>
+    <%= link_to trip_path(trip) do %>
+      <li class="list-group-item">
+        <span><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></span>
+        <span class="trip-table__date"><%= trip.departure_time.strftime '%a, %d of %b at %H:%M' %></span>
+        <span>£12</span>
+        <span><%= trip.user.first_name %> <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
+      </li>
+    <% end %>
   <% end %>
 </ul>

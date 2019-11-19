@@ -2,7 +2,14 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @trips = Trip.all
-    @trips_search = Trip.where(["origin = ? and destination = ?", params[:origin], params[:destination]])
+    if params[:origin]
+      origin = params[:origin].capitalize
+    end
+    if params[:destination]
+      destination = params[:destination].capitalize
+    end
+    @trips_search = Trip.where(["origin = ? and destination = ?", origin, destination])
+    @trips_partial = Trip.where(["origin = ?", origin])
   end
 
   def show
@@ -17,7 +24,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
-      redirect_to root_path
+      redirect_to trip_path(@trip)
     else
       render :new
     end
