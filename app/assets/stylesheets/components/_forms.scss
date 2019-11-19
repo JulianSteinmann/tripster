@@ -5,7 +5,7 @@
 .form-control {
   border-radius: 16px;
   box-shadow: 1px 1px 1px rgba(8, 8, 8, .05);
-  border-color: #09BC8A;
+  border-color: $lime-green
 }
 
 .btn{
@@ -13,12 +13,12 @@
 }
 
 
-p {
+.form p {
   margin-top: 16px;
 }
 
 h2 {
-  color: #09BC8A;
+  color: $lime-green
 }
 
 .btn-primary {
