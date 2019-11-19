@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+trips = Trip.create([{ destination: 'Ireland', origin: 'London', seats: 3 },
+{ destination: 'Ireland', origin: 'London', seats: 3 },
+{ destination: 'Ireland', origin: 'London', seats: 3 },
+{ destination: 'Ireland', origin: 'London', seats: 3 },
+{ destination: 'Ireland', origin: 'London', seats: 3 }])
