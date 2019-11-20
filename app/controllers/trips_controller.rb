@@ -4,7 +4,6 @@ class TripsController < ApplicationController
   def index
     @trips = Trip.all
     filter
-    get_date(params[:departure_time])
   end
 
   def show
@@ -53,9 +52,9 @@ class TripsController < ApplicationController
     end
   end
 
-  def get_date(params)
-    date = params.values.first(3).join('')
-    time = "T#{params.values.last(2).join('')}"
+  def get_date
+    date = params[:departure_time].values.first(3).join('')
+    time = "T#{params[:departure_time].values.last(2).join('')}"
     datetime = date + time
     DateTime.parse(datetime)
     @datetime = DateTime.parse(datetime)
