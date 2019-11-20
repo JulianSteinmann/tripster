@@ -8,7 +8,8 @@
       <li><%="Price: £#{@trip.price}"%></li>
     </ul>
 
-    <%= link_to "Book Now", root_path, class: "btn btn-primary" %>
+    <%= link_to 'Book Trip', trip_bookings_path(@trip), class:'btn btn-primary', method: :post %>
+
 
 
 
