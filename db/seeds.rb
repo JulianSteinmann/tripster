@@ -7,13 +7,17 @@ require "faker"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+def time_rand from = 0.0, to = Time.now
+  Time.at(from + rand * (to.to_f - from.to_f))
+end
+
 Booking.destroy_all
 Trip.destroy_all
 User.destroy_all
 
-puts 'Creating 40 users...'
+puts 'Creating 200 users...'
 
-40.times do
+200.times do
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -25,14 +29,14 @@ end
 
 puts 'Finished!'
 
-puts 'Creating 20 trips...'
+puts 'Creating 100 trips...'
 
-20.times do
+100.times do
   trip = Trip.new(
     user_id: User.all.sample.id,
     destination: ["Paris", "Madrid", "Belfast", "Berlin", "Chicago", "Zurich", "Berlin"].sample,
     origin: ["London", "Manchester", "Liverpool"].sample,
-    departure_time: Date.new,
+    departure_time: Date.today+rand(20),
     seats: rand(1..6),
     price: rand(12..1000)
   )
@@ -41,9 +45,9 @@ end
 
 puts 'Finished'
 
-puts 'Creating 5 bookings...'
+puts 'Creating 20 bookings...'
 
-5.times do
+20.times do
   booking = Booking.new(
     trip_id: Trip.all.sample.id,
     user_id: User.all.sample.id,
