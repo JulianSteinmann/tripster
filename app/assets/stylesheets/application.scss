@@ -11,8 +11,11 @@
 // Your CSS partials
 @import "components/index";
 @import "components/forms";
-@import "pages/index";
+@import "pages/home";
+@import "pages/dashboard";
 @import "components/trip-table";
+
+
 
 body:not(.page--home) {
   margin-top: 100px;

@@ -4,8 +4,8 @@
       <h2 style="text-align: center"> Create a trip</h2>
   <%= simple_form_for @trip do |f| %>
 
-    <%= f.input :destination %>
     <%= f.input :origin %>
+    <%= f.input :destination %>
     <%= f.input :departure_time, required: true, :label => "Departure date:"%>
     <%= f.input :seats %>
     <%= f.input :price %>
