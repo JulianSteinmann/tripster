@@ -6,5 +6,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @trips = Trip.all
+    @my_trips = Trip.where(user_id: current_user.id)
+    bookings = Booking.joins(:trip).where(user_id: current_user.id)
+    @booked_trips = bookings.map(&:trip)
   end
 end

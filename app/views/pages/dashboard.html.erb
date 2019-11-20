@@ -1,4 +1,13 @@
-<div class="container">
-  <h2 class="text-center">Pending Bookings</h2>
-  <%= render 'partials/trip-cards', trips: @trips %>
+<div class="container container-sidebar">
+<main>
+  <h2 class="text-center">My created trips</h2>
+  <%= render 'partials/trip-cards', trips: @my_trips %>
+  <br><br><br>
+  <h2 class="text-center">My booked trips</h2>
+  <%= render 'partials/trip-cards', trips: @booked_trips %>
+</main>
+<aside>
+  Sidebar here
+</aside>
+
 </div>
