@@ -5,6 +5,19 @@
     text-decoration: none;
     color: black;
   }
+
+  .list-group-item {
+    border-radius:24px;
+    width:100%;
+  }
+
+  a {
+    margin-bottom: 24px;
+  }
+
+  a li{
+    border-radius:24px;
+  }
   li {
     margin-bottom: 5px;
     text-align: center;
