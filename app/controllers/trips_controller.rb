@@ -4,14 +4,6 @@ class TripsController < ApplicationController
   def index
 
     @trips = Trip.where("seats > ?", 0)
-    if params[:origin].present?
-      origin = params[:origin].capitalize
-      @trips = @trips.where(origin: origin)
-    end
-    if params[:destination].present?
-      destination = params[:destination].capitalize
-      @trips = @trips.where(destination: destination)
-    end
 
     filter
 
