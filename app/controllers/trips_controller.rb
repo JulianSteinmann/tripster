@@ -3,14 +3,8 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
-    if params[:origin]
-      origin = params[:origin].capitalize
-    end
-    if params[:destination]
-      destination = params[:destination].capitalize
-    end
-    @trips_search = Trip.where(["origin = ? and destination = ?", origin, destination])
-    @trips_partial = Trip.where(["origin = ?", origin])
+    filter
+    get_date(params[:departure_time])
   end
 
   def show
@@ -39,5 +33,31 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(:destination, :origin, :departure_time, :seats, :price)
+  end
+
+  def filter
+    if params[:origin]
+      origin = params[:origin].capitalize
+    end
+    if params[:destination]
+      destination = params[:destination].capitalize
+    end
+    if params[:origin] == "" && params[:destination] == "" || params[:origin].nil? && params[:destination].nil?
+      @trips = @trips
+    elsif params[:origin] && params[:destination] == "" || params[:destination].nil?
+      @trips_partial = Trip.where(["origin = ?", origin])
+      @trips = @trips_partial
+    else
+      @trips_search = Trip.where(["origin = ? and destination = ?", origin, destination])
+      @trips = @trips_search
+    end
+  end
+
+  def get_date(params)
+    date = params.values.first(3).join('')
+    time = "T#{params.values.last(2).join('')}"
+    datetime = date + time
+    DateTime.parse(datetime)
+    @datetime = DateTime.parse(datetime)
   end
 end
