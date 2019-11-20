@@ -1,13 +1,44 @@
-.container-sidebar {
+.container-fluid {
   display: flex;
+  position: relative;
 
-  main {
-    flex: 1 0;
+  .sidebar {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    clear: none;
+    right: 15px;
+    text-align: center;
+    @extend .card;
+    padding: 30px;
+
+    .avatar {
+      width: 100px;
+      margin: 0 auto;
+    }
   }
-  aside {
-    flex: 0 0;
-    flex-basis: 300px;
-    background: #fff;
-    margin-left: 20px;
+
+  .content {
+    flex: 1 0;
+    height: 100%;
+    margin-right: 315px;
+    overflow: hidden;
+  }
+}
+/* On small screens the sidebar should be the full-width */
+@media (max-width: 999px) {
+  .container-fluid {
+    display: block;
+
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: static;
+      margin-bottom: 80px;
+    }
+
+    .content {
+      margin: 0;
+    }
   }
 }
