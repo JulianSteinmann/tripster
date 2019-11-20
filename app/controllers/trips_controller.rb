@@ -14,7 +14,6 @@ class TripsController < ApplicationController
     end
 
     filter
-    get_date
 
   end
 
@@ -61,18 +60,4 @@ class TripsController < ApplicationController
       @trips = Trip.where(["origin = ? and destination = ? and seats > ?", origin, destination, 0])
     end
   end
-
-  def get_date
-    if params[:departure_time]
-      date = params[:departure_time].values.first(3).join('')
-      time = "T#{params[:departure_time].values.last(2).join('')}"
-      datetime = date + time
-      DateTime.parse(datetime)
-      @datetime = DateTime.parse(datetime)
-      @trips = @trips.where("departure_time >= ?", @datetime)
-    end
-  end
 end
-
-
-# Wed, 20 Nov 2019 14:36:00 +0000
