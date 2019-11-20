@@ -1,19 +1,58 @@
-<ul class="list-group trip-table" >
-  <li>
-    <span>Departure/Arrival</span>
-    <span>Departure Time</span>
-    <span>Price</span>
-    <span>Driver</span>
-  </li>
-
-  <% trips.each do |trip| %>
-    <%= link_to trip_path(trip) do %>
-      <li class="list-group-item">
-        <span><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></span>
-        <span class="trip-table__date"><%= trip.departure_time.strftime '%a, %d of %b at %H:%M' %></span>
-        <span><%= "£#{trip.price}"%></span>
-        <span><%= trip.user.first_name %> <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
-      </li>
+<table id="dtOrderExample" class="table  table-hover table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th class="th-sm">Departure/Arrival</th>
+      <th class="th-sm">Departure Time</th>
+      <th class="th-sm">Price</th>
+      <th class="th-sm">Driver</th>
+      <th class="th-sm"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% trips.each do |trip| %>
+        <tr class="table-row" data-href="<%= trip_path(trip) %>">
+          <%= link_to trip_path(trip) do %>
+          <td><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></td>
+          <td class="trip-table__date"><%= trip.departure_time.strftime '%a, %d of %b at %H:%M' %></td>
+          <td><%= "£#{trip.price}"%></td>
+          <td><%= trip.user.first_name %> <%= trip.user.last_name %></td>
+          <td><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></td>
+          <% end %>
+        </tr>
     <% end %>
-  <% end %>
-</ul>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</tfoot>
+</table>
+
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<script>
+  // // Make table sortable
+  $(document).ready(function () {
+  $('#dtOrderExample').DataTable({
+  "order": [[ 3, "desc" ]]
+  });
+  $('.dataTables_length').addClass('bs-select');
+  });
+  // Add links to rows
+  $(document).ready(function($) {
+    $(".table-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+  });
+
+
+
+</script>
