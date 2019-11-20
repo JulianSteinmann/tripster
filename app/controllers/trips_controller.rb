@@ -73,3 +73,6 @@ class TripsController < ApplicationController
     end
   end
 end
+
+
+# Wed, 20 Nov 2019 14:36:00 +0000
