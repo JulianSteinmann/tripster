@@ -8,7 +8,10 @@
       <li><%="Price: £#{@trip.price}"%></li>
     </ul>
 
+    <% if @trip.seats > 0 %>
     <%= link_to 'Book Trip', trip_bookings_path(@trip), class:'btn btn-primary', method: :post %>
+    <% else %>
+    <% end %>
 
 
 

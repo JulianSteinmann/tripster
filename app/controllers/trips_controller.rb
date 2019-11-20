@@ -2,15 +2,15 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @trips = Trip.all
-    if params[:origin]
+    @trips = Trip.where("seats > ?", 0)
+    if params[:origin].present?
       origin = params[:origin].capitalize
+      @trips = @trips.where(origin: origin)
     end
-    if params[:destination]
+    if params[:destination].present?
       destination = params[:destination].capitalize
+      @trips = @trips.where(destination: destination)
     end
-    @trips_search = Trip.where(["origin = ? and destination = ?", origin, destination])
-    @trips_partial = Trip.where(["origin = ?", origin])
   end
 
   def show
