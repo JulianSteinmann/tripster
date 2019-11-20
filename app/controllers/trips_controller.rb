@@ -4,6 +4,7 @@ class TripsController < ApplicationController
   def index
     @trips = Trip.all
     filter
+    get_date
   end
 
   def show
@@ -44,19 +45,20 @@ class TripsController < ApplicationController
     if params[:origin] == "" && params[:destination] == "" || params[:origin].nil? && params[:destination].nil?
       @trips = @trips
     elsif params[:origin] && params[:destination] == "" || params[:destination].nil?
-      @trips_partial = Trip.where(["origin = ?", origin])
-      @trips = @trips_partial
+      @trips = Trip.where(["origin = ?", origin])
     else
-      @trips_search = Trip.where(["origin = ? and destination = ?", origin, destination])
-      @trips = @trips_search
+      @trips = Trip.where(["origin = ? and destination = ?", origin, destination])
     end
   end
 
   def get_date
-    date = params[:departure_time].values.first(3).join('')
-    time = "T#{params[:departure_time].values.last(2).join('')}"
-    datetime = date + time
-    DateTime.parse(datetime)
-    @datetime = DateTime.parse(datetime)
+    if params[:departure_time]
+      date = params[:departure_time].values.first(3).join('')
+      time = "T#{params[:departure_time].values.last(2).join('')}"
+      datetime = date + time
+      DateTime.parse(datetime)
+      @datetime = DateTime.parse(datetime)
+      @trips = @trips.where("departure_time >= ?", @datetime)
+    end
   end
 end
