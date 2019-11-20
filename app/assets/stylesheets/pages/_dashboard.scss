@@ -1,0 +1,13 @@
+.container-sidebar {
+  display: flex;
+
+  main {
+    flex: 1 0;
+  }
+  aside {
+    flex: 0 0;
+    flex-basis: 300px;
+    background: #fff;
+    margin-left: 20px;
+  }
+}
