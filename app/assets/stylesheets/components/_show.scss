@@ -1,5 +1,12 @@
 .container {
 
+  .container-card {
+    margin-top:80px;
+    background-color: white;
+    border-radius: 20px; padding: 24px;
+    box-shadow: 2px 2px 2px 2px rgba(8, 8, 8, .05);
+  }
+
   .header-trip {
   color: $lime-green;
   text-align: center;
