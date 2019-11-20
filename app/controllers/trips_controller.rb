@@ -56,9 +56,9 @@ class TripsController < ApplicationController
     if params[:origin] == "" && params[:destination] == "" || params[:origin].nil? && params[:destination].nil?
       @trips = @trips
     elsif params[:origin] && params[:destination] == "" || params[:destination].nil?
-      @trips = Trip.where(["origin = ?", origin])
+      @trips = Trip.where(["origin = ? and seats > ?", origin, 0])
     else
-      @trips = Trip.where(["origin = ? and destination = ?", origin, destination])
+      @trips = Trip.where(["origin = ? and destination = ? and seats > ?", origin, destination, 0])
     end
   end
 
