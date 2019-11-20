@@ -1,0 +1,48 @@
+.container {
+
+  .header-trip {
+  color: $lime-green;
+  text-align: center;
+  margin-bottom: 28px;
+  }
+
+  .button-book .btn {
+    width:100%;
+    border-radius: 40px;
+  }
+
+  .cards-trip {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 16px;
+
+    h3 {
+      color:$lime-green;
+    }
+
+    .card-image img{
+      border-radius: 16px;
+      height: 60vh;
+      width: 100%;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      margin-bottom:20px;
+    }
+
+    .price {
+      font-size: 28px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+  }
+
+
+}

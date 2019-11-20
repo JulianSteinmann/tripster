@@ -17,6 +17,6 @@
       <% end %>
       <%= link_to "Reset", trips_path, class: "btn btn-primary" %>
     </div>
+    <%= render "partials/trip-cards", trips: @trips %>
   </div>
-  <%= render "partials/trip-cards", trips: @trips %>
 </div>
