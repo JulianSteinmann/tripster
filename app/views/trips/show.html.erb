@@ -1,18 +1,32 @@
-    <h1><%="Trip from #{@trip.origin} to #{@trip.destination}"%></h2>
-
-    <ul>
-      <li><%="Driver: #{@trip.user.first_name} #{@trip.user.last_name}"%></li>
-      <li><%="Driver email: #{@trip.user.email}"%></li>
-      <li><%="Number of Seats: #{@trip.seats}"%></li>
-      <li><%="Date of Departure: #{@trip.departure_time}"%></li>
-      <li><%="Price: £#{@trip.price}"%></li>
-    </ul>
-
-    <% if @trip.seats > 0 %>
+<div class="container">
+  <div class="header-trip">
+    <h1><%=" Trip from #{@trip.origin} to #{@trip.destination}"%></h2>
+  </div>
+  <div class="row">
+    <div class="cards-trip">
+      <div class="card-details col-lg-4">
+        <h3 style="text-align: center">Trip Details</h3>
+        <ul>
+          <a href="#"><li><span><%="Driver: #{@trip.user.first_name} #{@trip.user.last_name}"%><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span></li></a>
+          <li><%="Driver email: #{@trip.user.email}"%></li>
+          <li><%="Number of Seats Available: #{@trip.seats}"%></li>
+          <li><%="Date of Departure: #{@trip.departure_time}"%></li>
+          <div class="price">
+            <li><%="Price: £#{@trip.price}"%></li>
+          </div>
+        </ul>
+      </div>
+      <div class="card-image col-lg-8">
+        <%= image_tag "map-example.jpg", class: "map-harvard" %>
+      </div>
+    </div>
+  </div>
+  <% if @trip.seats > 0 %>
+  <div class="button-book">
     <%= link_to 'Book Trip', trip_bookings_path(@trip), class:'btn btn-primary', method: :post %>
-    <% else %>
-    <% end %>
-
+  </div>
+  <% end %>
+</div>
 
 
 
