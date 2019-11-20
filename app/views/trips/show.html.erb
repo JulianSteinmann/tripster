@@ -23,7 +23,9 @@
   </div>
   <% if @trip.seats > 0 %>
   <div class="button-book">
+    <% if @trip.user != current_user %>
     <%= link_to 'Book Trip', trip_bookings_path(@trip), class:'btn btn-primary', method: :post %>
+    <% end %>
   </div>
   <% end %>
 </div>
