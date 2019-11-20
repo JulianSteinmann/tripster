@@ -15,8 +15,4 @@
 @import "pages/dashboard";
 @import "components/trip-table";
 
-
-
-body:not(.page--home) {
-  margin-top: 100px;
-}
+@import "pages/commons"
