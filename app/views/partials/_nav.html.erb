@@ -10,6 +10,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+<!--         <div class="nav-search-form">
+          <div class="nav-form">
+            <%= form_tag trips_path, method: :get do %>
+              <%= text_field_tag :origin,
+                params[:origin],
+                class: "form-control",
+                placeholder: "Where are you travelling from?"
+                %>
+          </div>
+          <div class="nav-btn">
+            <%= submit_tag "Search", class: "btn" %>
+          </div>
+          <% end %>
+        </div> -->
         <a class="nav-link" href="<%= trips_path %>">Find Trip</a>
       </li>
       <% if user_signed_in? %>
