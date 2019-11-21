@@ -31,7 +31,6 @@ class TripsController < ApplicationController
       lat: @trip.destination_latitude,
       lng: @trip.destination_longitude
     }
-    raise
   end
 
   def new
