@@ -1,10 +1,15 @@
 <div class="container-fluid container">
+<<<<<<< Updated upstream
   <div class="sidebar">
     <% if @user.photo.attached? %>
       <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar" %>
     <% else %>
       <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
     <% end %>
+=======
+  <div class="sidebar container-card">
+    <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+>>>>>>> Stashed changes
     <%= current_user.first_name %>
     <%= current_user.last_name %>
     <%= current_user.email %>
