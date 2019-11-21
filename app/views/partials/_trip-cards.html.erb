@@ -7,12 +7,19 @@
   </li>
 
   <% trips.each do |trip| %>
+    <% @user_trip = User.find(trip.user_id) %>
     <%= link_to trip_path(trip) do %>
       <li class="list-group-item">
         <span><%= trip.origin %> <i class="fas fa-arrow-right"></i>&nbsp;<%= trip.destination %></span>
         <span class="trip-table__date"><%= trip.departure_time.strftime '%a, %d of %b at %H:%M' %></span>
         <span><%= "£#{trip.price}"%></span>
-        <span><%= trip.user.first_name %> <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
+        <span><%= trip.user.first_name %> <%= trip.user.last_name %>
+          <% if @user_trip.photo.attached? %>
+            <%= cl_image_tag @user_trip.photo.key, crop: :fill, class: "avatar" %>
+          <% else %>
+            <img class="avatar" src="https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1">
+          <% end %>
+        </span>
       </li>
     <% end %>
     <% if trip.departure_time < DateTime.now && trip.user != current_user %>
