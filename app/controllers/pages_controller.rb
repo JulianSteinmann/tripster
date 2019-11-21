@@ -6,24 +6,9 @@ class PagesController < ApplicationController
 
   def dashboard
     @trips = Trip.all
-    @my_trips = Trip.where(user_id: current_user.id)
-    @bookings = Booking.joins(:trip).where(user_id: current_user.id)
+    @created_trips = Booking.where(user_id: current_user.id)
+    @booked_trips = Booking.joins(:trip).where(user_id: current_user.id)
     # @booked_trips = bookings.map(&:trip)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     @user = current_user
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   end
 end

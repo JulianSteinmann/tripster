@@ -1,15 +1,18 @@
+.booking-table,
 .trip-table {
   width: 100%;
   color: black;
-  a, a:hover {
+
+  a,
+  a:hover {
     text-decoration: none;
     color: black;
   }
 
   .list-group-item {
     border-radius: 14px !important;
-    width:100%;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1pt 4pt, rgba(0, 0, 0, 0.05) 0px 2pt 8pt;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1pt 4pt, rgba(0, 0, 0, 0.05) 0 2pt 8pt;
   }
 
   a {
@@ -18,14 +21,16 @@
 
   li {
     margin-bottom: 5px;
-    text-align: center;
+    text-align: left;
+    &.table-head span { text-align: center !important; }
+
     .avatar {
       margin-left: 15px;
       @media screen and (max-width: 900px) {
-        display: none
+        display: none;
       }
-
     }
+
     i {
       display: inline;
       vertical-align: 20%;
@@ -33,10 +38,49 @@
     }
     display: flex;
     align-items: center;
-    span { width: 25%; display: inline-block;}
+
+    span {
+      width: 25%;
+      display: inline-block;
+      flex: 1 1;
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+
     .trip-table__date {
       @media screen and (max-width: 900px) {
         font-size: 80%;
+      }
+    }
+  }
+}
+
+.booking-table {
+  .list-group-item {
+    flex-direction: column;
+    align-items: stretch;
+
+    div {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+
+      &:first-child {
+        border-bottom: 1px solid $light-gray;
+        padding-bottom: 8px;
+      }
+
+      &:last-child {
+        border-radius: 14px !important;
+        width: 100%;
+        padding: 8px 16px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0 1pt 4pt, rgba(0, 0, 0, 0.05) 0 2pt 8pt;
+
+        span:first-child {
+          text-align: left;
+        }
       }
     }
   }

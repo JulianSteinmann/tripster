@@ -1,15 +1,10 @@
 <div class="container-fluid container">
-<<<<<<< Updated upstream
   <div class="sidebar">
     <% if @user.photo.attached? %>
       <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar" %>
     <% else %>
       <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
     <% end %>
-=======
->>>>>>> Stashed changes
-  <div class="sidebar container-card">
-    <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
     <%= current_user.first_name %>
     <%= current_user.last_name %>
     <%= current_user.email %>
@@ -18,11 +13,11 @@
   <div class="content">
     <div class="container-card p-4 ">
       <h2 class="text-center">My created trips</h2>
-      <%= render 'partials/trip-cards', trips: @my_trips %>
+      <%= render 'partials/booking-cards', bookings: @created_trips %>
     </div>
     <div class="container-card p-4">
       <h2 class="text-center">My booked trips</h2>
-      <%= render 'partials/booking-cards', bookings: @bookings %>
+      <%= render 'partials/booking-cards', bookings: @booked_trips %>
     </div>
   </div>
 </div>

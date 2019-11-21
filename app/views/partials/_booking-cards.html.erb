@@ -1,5 +1,5 @@
-<ul class="list-group trip-table">
-  <li>
+<ul class="list-group booking-table">
+  <li class="table-head">
     <span>Departure/Arrival</span>
     <span>Departure Time</span>
     <span>Price</span>
@@ -18,8 +18,21 @@
             <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
         </div>
         <div>
-          <span><%= booking.user.first_name %>
-            <%= booking.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
+            <span class="<%= booking.status %>">Status: <%= booking.status %></span>
+            <%= current_user.first_name %>
+            <%= booking.trip.user.first_name %>
+            <%= current_user ==  booking.trip.user %>
+            <% if current_user ==  booking.trip.user %>
+              Yes mine
+            <% end %>
+            <span>
+              <%= booking.user.first_name %> <%= booking.user.last_name %>
+              <% if @user.photo.attached? %>
+                <%= cl_image_tag booking.user.photo.key, crop: :fill, class: "avatar" %>
+              <% else %>
+                <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+              <% end %>
+            </span>
         </div>
       </li>
     <% end %>
