@@ -1,9 +1,14 @@
 <div class="container-fluid container">
   <div class="sidebar">
-    <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 100, width: 50, crop: :fill, class: "avatar" %>
+    <% else %>
+      <img class="avatar" src="https://wiki.engineeredarts.co.uk/w/images/f/fe/GuiseSample01.jpg">
+    <% end %>
     <%= current_user.first_name %>
     <%= current_user.last_name %>
     <%= current_user.email %>
+    <%= link_to "Edit profile", edit_user_registration_path %>
   </div>
   <div class="content">
     <h2 class="text-center">My created trips</h2>
