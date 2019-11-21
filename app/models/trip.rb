@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :user
+  has_many :reviews
 
   validates :destination, presence: true
   validates :seats, presence: true
