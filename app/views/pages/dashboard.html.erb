@@ -11,12 +11,13 @@
     <%= link_to "Edit profile", edit_user_registration_path %>
   </div>
   <div class="content">
-    <h2 class="text-center">My created trips</h2>
-    <%= render 'partials/trip-cards', trips: @my_trips %>
-    <br><br><br>
-    <h2 class="text-center">My booked trips</h2>
-    <%= render 'partials/trip-cards', trips: @booked_trips %>
+    <div class="container-card p-4 ">
+      <h2 class="text-center">My created trips</h2>
+      <%= render 'partials/trip-cards', trips: @my_trips %>
+    </div>
+    <div class="container-card p-4">
+      <h2 class="text-center">My booked trips</h2>
+      <%= render 'partials/booking-cards', bookings: @bookings %>
+    </div>
   </div>
-</div>
-
 </div>

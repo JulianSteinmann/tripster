@@ -21,10 +21,11 @@
   .content {
     flex: 1 0;
     height: 100%;
-    margin-right: 315px;
+    margin-right: 328px;
     overflow: hidden;
   }
 }
+
 /* On small screens the sidebar should be the full-width */
 @media (max-width: 999px) {
   .container-fluid {
@@ -34,7 +35,7 @@
       width: 100%;
       height: auto;
       position: static;
-      margin-bottom: 80px;
+      // @extend ;
     }
 
     .content {
