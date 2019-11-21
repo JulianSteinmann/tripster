@@ -23,8 +23,10 @@ class PagesController < ApplicationController
     bookings = Booking.joins(:trip).where("departure_time > ? AND bookings.user_id = ?", DateTime.now, current_user.id)
     @booked_trips = bookings.map(&:trip)
 
+
     completed = Booking.joins(:trip).where("departure_time < ? AND bookings.user_id = ?", DateTime.now, current_user.id)
     @completed_trips = completed.map(&:trip)
+    @user = current_user
   end
 end
 
