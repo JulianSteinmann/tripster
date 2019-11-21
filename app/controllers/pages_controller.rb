@@ -10,7 +10,10 @@ class PagesController < ApplicationController
     @bookings = Booking.joins(:trip).where(user_id: current_user.id)
     # @booked_trips = bookings.map(&:trip)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @user = current_user
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   end
