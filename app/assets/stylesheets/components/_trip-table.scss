@@ -66,22 +66,21 @@
       margin-top: 8px;
       display: flex;
       align-items: center;
-
-      &:first-child {
-        border-bottom: 1px solid $light-gray;
-        padding-bottom: 8px;
-      }
-
-      &:last-child {
+      &:not(:first-child) {
         border-radius: 14px !important;
         width: 100%;
         padding: 8px 16px;
         box-shadow: rgba(0, 0, 0, 0.16) 0 1pt 4pt, rgba(0, 0, 0, 0.05) 0 2pt 8pt;
-
-        span:first-child {
-          text-align: left;
-        }
       }
+      &:first-child {
+        border-bottom: 1px solid $light-gray;
+        padding-bottom: 8px;
+      }
+      span:first-child {
+        text-align: left;
+      }
+
+
     }
   }
 }
