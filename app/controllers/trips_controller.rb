@@ -3,15 +3,7 @@ class TripsController < ApplicationController
 
   def index
 
-    @trips = Trip.where("seats > ?", 0)
-    if params[:origin].present?
-      origin = params[:origin].capitalize
-      @trips = @trips.where(origin: origin)
-    end
-    if params[:destination].present?
-      destination = params[:destination].capitalize
-      @trips = @trips.where(destination: destination)
-    end
+    @trips = Trip.where("seats > ? and departure_time > ?", 0, DateTime.now)
 
     filter
 
@@ -19,6 +11,7 @@ class TripsController < ApplicationController
 
   def show
     find_trip
+
     @markers = []
     @markers <<
     {
@@ -31,7 +24,19 @@ class TripsController < ApplicationController
       lat: @trip.destination_latitude,
       lng: @trip.destination_longitude
     }
+
+    @driver_reviews = @trip.user.reviews
+    total = 0
+
+    if @driver_reviews.length > 0
+      @driver_reviews.each do |review|
+        total += review.stars
+      end
+
+      @average_review = total / @driver_reviews.length
+    end
   end
+
 
   def new
     @trip = Trip.new
@@ -67,9 +72,9 @@ class TripsController < ApplicationController
     if params[:origin] == "" && params[:destination] == "" || params[:origin].nil? && params[:destination].nil?
       @trips = @trips
     elsif params[:origin] && params[:destination] == "" || params[:destination].nil?
-      @trips = Trip.where(["origin = ? and seats > ?", origin, 0])
+      @trips = Trip.where(["origin = ? and seats > ? and departure_time > ?", origin, 0, DateTime.now])
     else
-      @trips = Trip.where(["origin = ? and destination = ? and seats > ?", origin, destination, 0])
+      @trips = Trip.where(["origin = ? and destination = ? and seats > ? and departure_time > ?", origin, destination, 0, DateTime.now])
     end
   end
 end

@@ -1,3 +1,2 @@
-
-import { menuBackground } from 'components/navbar.js'
+import { menuBackground } from './../components/navbar.js'
 menuBackground();

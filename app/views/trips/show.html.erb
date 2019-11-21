@@ -9,6 +9,15 @@
           <h3 style="text-align: center">Trip Details</h3>
           <ul>
             <a href="#"><li><span><%="Driver: #{@trip.user.first_name} #{@trip.user.last_name}"%><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span></li></a>
+            <% if @driver_reviews.length > 0 %>
+              <%= "Average Rating: " %>
+              <% @average_review.times do %>
+                <i class='fas fa-star'></i>
+              <% end %>
+              <% (5 - @average_review).times do %>
+                <i class='fas fa-star gray'></i>
+              <% end %>
+            <% end %>
             <li><%="Driver email: #{@trip.user.email}"%></li>
             <li><%="Number of Seats Available: #{@trip.seats}"%></li>
             <li><%="Date of Departure: #{@trip.departure_time.strftime '%a, %d of %b at %H:%M'}"%></li>
@@ -37,11 +46,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
