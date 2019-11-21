@@ -34,11 +34,11 @@ puts 'Creating 100 trips...'
 100.times do
   trip = Trip.new(
     user_id: User.all.sample.id,
-    destination: ["Paris", "Madrid", "Belfast", "Berlin", "Chicago", "Zurich", "Berlin"].sample,
+    destination: ["Paris", "Madrid", "Belfast", "Berlin", "Zurich", "Berlin"].sample,
     origin: ["London", "Manchester", "Liverpool"].sample,
     departure_time: Date.today+rand(20),
     seats: rand(1..6),
-    price: rand(12..1000)
+    price: rand(5..55)
   )
   trip.save!
 end
