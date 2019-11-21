@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-
+    find_user
     @trips = Trip.where("seats > ? and departure_time > ?", 0, DateTime.now)
 
     filter
@@ -11,7 +11,8 @@ class TripsController < ApplicationController
 
   def show
     find_trip
-
+    find_user
+    find_user_show
     @driver_reviews = @trip.user.reviews
     total = 0
 
@@ -63,5 +64,13 @@ class TripsController < ApplicationController
     else
       @trips = Trip.where(["origin = ? and destination = ? and seats > ? and departure_time > ?", origin, destination, 0, DateTime.now])
     end
+  end
+
+  def find_user_show
+    @user_show = User.find(Trip.find(params[:id]).user_id)
+  end
+
+  def find_user
+    @user = current_user
   end
 end
