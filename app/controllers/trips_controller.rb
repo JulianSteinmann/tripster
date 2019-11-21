@@ -12,6 +12,19 @@ class TripsController < ApplicationController
   def show
     find_trip
 
+    @markers = []
+    @markers <<
+    {
+      lat: @trip.origin_latitude,
+      lng: @trip.origin_longitude
+    }
+
+    @markers <<
+    {
+      lat: @trip.destination_latitude,
+      lng: @trip.destination_longitude
+    }
+
     @driver_reviews = @trip.user.reviews
     total = 0
 
