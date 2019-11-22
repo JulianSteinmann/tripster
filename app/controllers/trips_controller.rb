@@ -14,18 +14,19 @@ class TripsController < ApplicationController
 
     find_user
     find_user_show
-
     @markers = []
     @markers <<
     {
       lat: @trip.origin_latitude,
-      lng: @trip.origin_longitude
+      lng: @trip.origin_longitude,
+      infoWindow: @trip.origin.capitalize
     }
 
     @markers <<
     {
       lat: @trip.destination_latitude,
-      lng: @trip.destination_longitude
+      lng: @trip.destination_longitude,
+      infoWindow: @trip.destination.capitalize
     }
 
     @driver_reviews = @trip.user.reviews
