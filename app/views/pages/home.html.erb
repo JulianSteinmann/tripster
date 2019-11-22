@@ -27,7 +27,10 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)), url(<%= asset_url("atlas-green-VGOiY1gZZYg-unsplash.jpg")%>);">
   <div class="container">
-    <h2>Make the journey part of the experience</h2>
+    <div class="find-banner">
+      <h2>Make the journey part of the experience</h2>
+      <%= link_to "Find a Trip", trips_path, class: "btn btn-primary" %>
+    </div>
   </div>
 </div>
 
