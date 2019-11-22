@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @trip = Trip.find(params[:trip_id])
     @review = Review.new
+    @user = current_user
   end
 
   def create
@@ -18,6 +19,5 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:content, :stars, :trip_id)
   end
-
 end
 

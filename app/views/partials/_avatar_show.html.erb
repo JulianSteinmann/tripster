@@ -1,0 +1,5 @@
+<% if @user_show.photo.attached? %>
+  <%= cl_image_tag @user_show.photo.key, crop: :fill, class: "avatar" %>
+<% else %>
+  <img class="avatar" src="https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1">
+<% end %>
