@@ -20,7 +20,7 @@
             <% end %>
             <li><%="Driver email: #{@trip.user.email}"%></li>
             <li><%="Number of Seats Available: #{@trip.seats}"%></li>
-            <li><%="Date of Departure: #{@trip.departure_time.strftime '%a, %d of %b at %H:%M'}"%></li>
+            <li><%="Date of Departure: #{@trip.departure_time.strftime '%a, %d of %b'}"%></li>
             <div class="price">
               <li><%="Price: £#{@trip.price}"%></li>
             </div>
