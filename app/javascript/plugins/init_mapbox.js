@@ -39,7 +39,7 @@ export { initMapbox };
 // create a function to make a directions request
 // create a function to make a directions request
 
-mapboxgl.accessToken = 'pk.eyJ1IjoianVsaWFuc3RlaW5tYW5uIiwiYSI6ImNrM2EyYXB0aDA4ZHYzam14bjFieXlrZGIifQ.WcbID-rR_nYymTPl9xsIBA';
+mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 // create a function to make a directions request
 function getRoute(origin_latitude,origin_longitude,destination_latitude,destination_longitude, map) {
   // make a directions request using cycling profile
@@ -53,6 +53,7 @@ function getRoute(origin_latitude,origin_longitude,destination_latitude,destinat
   req.responseType = 'json';
   req.open('GET', url, true);
   req.onload = function() {
+    
     var data = req.response.routes[0];
     var route = data.geometry.coordinates;
     var geojson = {

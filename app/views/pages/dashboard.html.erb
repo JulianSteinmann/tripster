@@ -7,12 +7,14 @@
 
     <br>
     <% if @my_reviews.length > 0 %>
-      <%  @average_review.times do %>
-      <i class='fas fa-star'></i>
-      <% end %>
-      <%  (5 - @average_review).times do %>
-      <i class='fas fa-star gray'></i>
-      <% end %>
+      <div class="d-flex justify-content-center">
+        <%  @average_review.times do %>
+        <i class='fas fa-star'></i>
+        <% end %>
+        <%  (5 - @average_review).times do %>
+        <i class='far fa-star'></i>
+        <% end %>
+      </div>
     <% end %>
 
 

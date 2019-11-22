@@ -1,25 +1,27 @@
 <div class="container">
   <h1 class="trips-header" style='text-align:center'>Trips</h1>
   <div class="container d-flex">
-    <div class="filter">
-      <%= form_tag trips_path, method: :get do %>
-        <%= text_field_tag :origin,
-          params[:origin],
-          class: "form-control",
-          placeholder: "Origin"
-        %>
-          <%= text_field_tag :destination,
-          params[:destination],
-          class: "form-control",
-          placeholder: "Destination"
-        %>
-        <div class="container d-flex">
-          <%= submit_tag "Filter", class: "btn btn-primary mr-3" %>
-          <%= link_to "Reset", trips_path, class: "btn btn-primary" %>
-        </div>
-      <% end %>
+    <div class="filter-container">
+      <div class="filter">
+        <%= form_tag trips_path, method: :get do %>
+          <%= text_field_tag :origin,
+            params[:origin],
+            class: "form-control",
+            placeholder: "Origin"
+          %>
+            <%= text_field_tag :destination,
+            params[:destination],
+            class: "form-control",
+            placeholder: "Destination"
+          %>
+          <div class="container d-flex">
+            <%= submit_tag "Filter", class: "btn btn-primary mr-3" %>
+            <%= link_to "Reset", trips_path, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="container">
+    <div class="results-container">
       <%= render "partials/trip-cards", trips: @trips %>
     </div>
   </div>
