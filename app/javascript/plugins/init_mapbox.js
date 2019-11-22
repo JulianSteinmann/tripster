@@ -39,7 +39,9 @@ export { initMapbox };
 // create a function to make a directions request
 // create a function to make a directions request
 
+
 mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+
 // create a function to make a directions request
 function getRoute(origin_latitude,origin_longitude,destination_latitude,destination_longitude, map) {
   // make a directions request using cycling profile
