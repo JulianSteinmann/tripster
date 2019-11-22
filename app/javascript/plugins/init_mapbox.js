@@ -39,7 +39,7 @@ export { initMapbox };
 // create a function to make a directions request
 // create a function to make a directions request
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGVsZmlydWVkYSIsImEiOiJjazJvbm80Nm4wenA0M21ueGV5Y2VqamhtIn0.6V8sIu-umpLwmk0NjYvA2Q';
+mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 // create a function to make a directions request
 function getRoute(origin_latitude,origin_longitude,destination_latitude,destination_longitude, map) {
   // make a directions request using cycling profile
@@ -90,4 +90,3 @@ function getRoute(origin_latitude,origin_longitude,destination_latitude,destinat
   };
   req.send();
 }
-
