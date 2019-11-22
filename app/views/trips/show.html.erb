@@ -15,12 +15,12 @@
                 <i class='fas fa-star'></i>
               <% end %>
               <% (5 - @average_review).times do %>
-                <i class='fas fa-star gray'></i>
+                <i class='far fa-star'></i>
               <% end %>
             <% end %>
             <li><%="Driver email: #{@trip.user.email}"%></li>
             <li><%="Number of Seats Available: #{@trip.seats}"%></li>
-            <li><%="Date of Departure: #{@trip.departure_time.strftime '%a, %d of %b at %H:%M'}"%></li>
+            <li><%="Date of Departure: #{@trip.departure_time.strftime '%a, %d of %b'}"%></li>
             <div class="price">
               <li><%="Price: £#{@trip.price}"%></li>
             </div>
@@ -29,7 +29,7 @@
         <div class="card-image col-lg-8">
           <div
             id="map"
-            style="width: 680px;
+            style="width: 700px;
             height: 600px;"
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
