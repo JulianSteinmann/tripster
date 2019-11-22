@@ -1,4 +1,6 @@
 <ul class="list-group trip-table" >
+  <% if trips.count > 0 %>
+
   <li>
     <span>Departure/Arrival</span>
     <span>Departure Time</span>
@@ -27,5 +29,10 @@
         <%= link_to "Rate This Trip", new_trip_review_path(trip), class: "btn btn-primary review"  %>
       </div>
     <% end %>
+  <% end %>
+
+  <% else %>
+
+    <%= render 'partials/link-card', mypath: trips_path, message: "Book first trip"   %>
   <% end %>
 </ul>
