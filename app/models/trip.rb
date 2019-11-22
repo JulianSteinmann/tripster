@@ -1,6 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :bookings
 
   validates :destination, presence: true

@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def create
     @booking = Booking.new
     @trip = Trip.find(params[:trip_id])
@@ -14,5 +13,4 @@ class BookingsController < ApplicationController
       render :new
     end
   end
-
 end
