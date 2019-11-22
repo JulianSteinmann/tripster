@@ -1,5 +1,10 @@
 .form {
-  padding-top: 48px;
+  // padding-top: 24px;
+  padding: 40px 48px 24px 48px;
+  background-color: white;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 12px 4px rgba(8, 8, 8, .08);
 }
 
 .form-control {
@@ -16,10 +21,25 @@ h2 {
   color: $lime-green;
 }
 
+h3 {
+  color: $lime-green;
+  text-align: center;
+  margin-top: 16px;
+}
+
 .form .btn-primary {
   color:white;
   border-radius: 24px;
-  padding: 4px 16px;
+  padding: 4px 12px;
+  :hover {
+    color: white;
+  }
+}
+
+.form .btn-danger {
+  color:white;
+  border-radius: 24px;
+  padding: 2px 16px;
   :hover {
     color: white;
   }
