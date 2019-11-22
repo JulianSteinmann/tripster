@@ -17,13 +17,10 @@ class PagesController < ApplicationController
       total += review.stars
     end
 
-    if @my_reviews.length > 0
-      @average_review = total / @my_reviews.length
-    end
+    @average_review = total / @my_reviews.length unless @my_reviews.empty?
 
     bookings = Booking.joins(:trip).where("departure_time > ? AND bookings.user_id = ?", DateTime.now, current_user.id)
     @booked_trips = bookings.map(&:trip)
-
 
     completed = Booking.joins(:trip).where("departure_time < ? AND bookings.user_id = ?", DateTime.now, current_user.id)
     @completed_trips = completed.map(&:trip)
