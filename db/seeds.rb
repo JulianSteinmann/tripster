@@ -45,6 +45,18 @@ end
 
 puts 'Finished'
 
+puts 'Creating 100 reviews...'
+
+100.times do
+  review = Review.new(
+    trip_id: Trip.all.sample.id,
+    stars: rand(1..5),
+    )
+  review.save!
+end
+
+puts 'Finished'
+
 puts 'Creating 20 bookings...'
 
 20.times do
