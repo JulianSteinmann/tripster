@@ -55,6 +55,7 @@ function getRoute(origin_latitude,origin_longitude,destination_latitude,destinat
   req.responseType = 'json';
   req.open('GET', url, true);
   req.onload = function() {
+    
     var data = req.response.routes[0];
     var route = data.geometry.coordinates;
     var geojson = {

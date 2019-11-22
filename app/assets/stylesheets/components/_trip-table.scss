@@ -40,12 +40,14 @@
     align-items: center;
 
     span {
-      width: 25%;
+      flex-basis: 24%;
       display: inline-block;
       flex: 1 1;
+      text-align: center;
 
       &:last-child {
         text-align: right;
+        flex-basis: 28%;
       }
     }
 
@@ -74,7 +76,7 @@
       }
       &:first-child {
         border-bottom: 1px solid $light-gray;
-        padding-bottom: 8px;
+        padding-bottom: 8px
       }
       span:first-child {
         text-align: left;

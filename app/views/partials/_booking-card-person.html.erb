@@ -1,0 +1,15 @@
+<div>
+  <%# booking.status %>
+  <%# booking.trip.user.first_name %>
+  <%# current_user == booking.trip.user %>
+  <span>Booked by:</span>
+  <span>
+    <%= booking.user.first_name %>
+    <%= booking.user.last_name %>
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag booking.user.photo.key, crop: :fill, class: "avatar" %>
+    <% else %>
+      <img class="avatar" src="https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1">
+    <% end %>
+  </span>
+</div>

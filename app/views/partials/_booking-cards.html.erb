@@ -14,30 +14,16 @@
         <span class="trip-table__date"><%= trip.departure_time.strftime '%a, %d of %b' %></span>
         <span><%= "£#{trip.price}"%></span>
         <span><%= trip.user.first_name %>
-          <%= trip.user.last_name %><img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier"></span>
-      </div>
-      <% trip.bookings.each do |booking| %>
-      <div>
-        <span class="<%= booking.status %>">Status: <%= booking.status %></span>
-        <%= current_user.first_name %>
-        <%= booking.trip.user.first_name %>
-        <%= current_user == booking.trip.user %>
-        <% if current_user ==  booking.trip.user %>
-          Yes mine
-        <% end %>
-        <span>
-          <%= booking.user.first_name %>
-          <%= booking.user.last_name %>
-          <% if @user.photo.attached? %>
-            <%= cl_image_tag booking.user.photo.key, crop: :fill, class: "avatar" %>
-          <% else %>
-            <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
-          <% end %>
+          <%= trip.user.last_name %>
+          <img class="avatar" src="https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1">
         </span>
       </div>
-    <% end %>
-  </li>
-<% end %>
+      <% trip.bookings.each do |booking| %>
+        <%= render 'partials/booking-card-person', booking: booking %>
+      <% end %>
+
+    </li>
+  <% end %>
 <% end %>
 
 </ul>
