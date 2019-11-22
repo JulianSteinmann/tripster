@@ -1,4 +1,6 @@
 <ul class="list-group booking-table">
+  <% if @my_trips.count > 0 %>
+
   <li class="table-head">
     <span>Departure/Arrival</span>
     <span>Departure Time</span>
@@ -24,6 +26,10 @@
 
     </li>
   <% end %>
+<% end %>
+
+<% else %>
+  <%= render 'partials/link-card',  mypath: new_trip_path, message: "Create first trip"  %>
 <% end %>
 
 </ul>

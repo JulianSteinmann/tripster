@@ -1,34 +1,37 @@
-<div class="container-fluid container">
+<div class="container-fluid container container-dashboard">
   <div class="sidebar">
     <%= render 'partials/avatar' %>
     <%= current_user.first_name %>
     <%= current_user.last_name %>
     <%= current_user.email %>
 
-    <br>
     <% if @my_reviews.length > 0 %>
       <div class="d-flex justify-content-center">
         <%  @average_review.times do %>
-        <i class='fas fa-star'></i>
+          <i class='fas fa-star'></i>
         <% end %>
         <%  (5 - @average_review).times do %>
-        <i class='far fa-star'></i>
+          <i class='far fa-star'></i>
         <% end %>
       </div>
     <% end %>
 
-
     <%= link_to "Edit profile", edit_user_registration_path %>
 
   </div>
-  <div class="content">
-    <h2 class="text-center">My created trips</h2>
-    <%= render 'partials/booking-cards', trips: @my_trips %>
-    <br><br><br>
-    <h2 class="text-center">My booked trips</h2>
-    <%= render 'partials/trip-cards', trips: @booked_trips %>
-    <br><br><br>
-    <h2 class="text-center">My Completed trips</h2>
-    <%= render 'partials/trip-cards', trips: @completed_trips %>
+  <div class="content ">
+    <div class="card">
+      <h2 class="text-center">My created trips</h2>
+      <%= render 'partials/booking-cards', trips: @my_trips %>
+    </div>
+    <div class="card">
+      <h2 class="text-center">My booked trips</h2>
+      <%= render 'partials/trip-cards', trips: @booked_trips %>
+    </div>
+    <div class="card">
+      <h2 class="text-center">My Completed trips</h2>
+      <%= render 'partials/trip-cards', trips: @completed_trips %>
+    </div>
+
   </div>
 </div>

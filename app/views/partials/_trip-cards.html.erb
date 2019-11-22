@@ -1,4 +1,6 @@
 <ul class="list-group trip-table" >
+  <% if @my_trips.count > 0 %>
+
   <li>
     <span>Departure/Arrival</span>
     <span>Departure Time</span>
@@ -25,5 +27,9 @@
     <% if trip.departure_time < DateTime.now && trip.user != current_user %>
     <%= link_to "Review This Trip", new_trip_review_path(trip), class: "btn btn-primary" %>
     <% end %>
+  <% end %>
+
+  <% else %>
+    <%= render 'partials/link-card', mypath: trips_path, message: "Book first trip"   %>
   <% end %>
 </ul>
