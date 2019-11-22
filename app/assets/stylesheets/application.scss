@@ -1,3 +1,6 @@
+// Reset css (improve cross browser compability)
+@import "config/normalize.css";
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
