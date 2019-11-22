@@ -23,7 +23,9 @@
       </li>
     <% end %>
     <% if trip.departure_time < DateTime.now && trip.user != current_user %>
-    <%= link_to "Review This Trip", new_trip_review_path(trip), class: "btn btn-primary" %>
+      <div class= "review-button-container">
+        <%= link_to "Rate This Trip", new_trip_review_path(trip), class: "btn btn-primary review"  %>
+      </div>
     <% end %>
   <% end %>
 </ul>

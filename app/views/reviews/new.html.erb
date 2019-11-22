@@ -1,8 +1,12 @@
-<h2>How did you rate this trip?</h2>
-
-<%= simple_form_for [@trip, @review] do |f| %>
+<div class="container text-centerw-50">
+  <h2>How did you rate this trip?</h2>
+  <div class="review-form-container">
+  <%= simple_form_for [@trip, @review] do |f| %>
 
   <%= f.input :stars %>
 
-  <%= f.submit "Create Review", class: "btn btn-primary" %>
+  <%= f.submit "Create Rating", class: "btn btn-primary" %>
 <% end %>
+</div>
+
+</div>
